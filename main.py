@@ -99,6 +99,7 @@ try:
 spreadsheet = get_sheet()
 
 ```
+# NSE_DATA
 nse_sheet = spreadsheet.worksheet("NSE_DATA")
 nse_sheet.clear()
 
@@ -106,7 +107,7 @@ nse_data = [["SYMBOL", "CLOSE", "RS SCORE", "SCORE", "SIGNAL"]]
 
 for _, row in result_df.iterrows():
     nse_data.append([
-        row["Symbol"],
+        "NSE:" + row["Symbol"].replace(".NS", ""),
         row["Close"],
         row["RS Score"],
         row["Score"],
@@ -115,6 +116,7 @@ for _, row in result_df.iterrows():
 
 nse_sheet.update("A1", nse_data)
 
+# RS_SCORE
 rs_sheet = spreadsheet.worksheet("RS_SCORE")
 rs_sheet.clear()
 
@@ -122,7 +124,7 @@ rs_data = [["SYMBOL", "1M RET", "3M RET", "6M RET", "RS SCORE"]]
 
 for _, row in result_df.iterrows():
     rs_data.append([
-        row["Symbol"],
+        "NSE:" + row["Symbol"].replace(".NS", ""),
         row["1M Return"],
         row["3M Return"],
         row["6M Return"],
@@ -131,6 +133,7 @@ for _, row in result_df.iterrows():
 
 rs_sheet.update("A1", rs_data)
 
+# TOP_BUYS
 top_sheet = spreadsheet.worksheet("TOP_BUYS")
 top_sheet.clear()
 
@@ -142,7 +145,7 @@ rank = 1
 for _, row in top_df.iterrows():
     top_data.append([
         rank,
-        row["Symbol"],
+        "NSE:" + row["Symbol"].replace(".NS", ""),
         row["Score"],
         row["Signal"]
     ])
