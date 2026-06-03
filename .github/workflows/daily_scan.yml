@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Create Credentials File
+      - name: Create credentials file
         run: |
           echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
 
