@@ -17,7 +17,6 @@ for stock in stocks:
 try:
 print(f"Processing {stock}")
 
-```
     df = yf.download(
         stock,
         period="1y",
@@ -70,7 +69,6 @@ print(f"Processing {stock}")
 
 except Exception as e:
     print(f"{stock} Error: {e}")
-```
 
 result_df = pd.DataFrame(
 results,
@@ -98,7 +96,6 @@ print(result_df)
 try:
 spreadsheet = get_sheet()
 
-```
 # NSE_DATA
 nse_sheet = spreadsheet.worksheet("NSE_DATA")
 nse_sheet.clear()
@@ -154,7 +151,6 @@ for _, row in top_df.iterrows():
 top_sheet.update("A1", top_data)
 
 print("✅ Google Sheet Updated Successfully")
-```
 
 except Exception as e:
 print("❌ Sheet Update Error:", e)
